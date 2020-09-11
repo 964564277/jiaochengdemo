@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加</title>
+    <link rel="stylesheet" href="bt/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bt/css/bootstrap-theme.min.css">
+    <script type="text/javascript" src="bt/js/jquery.js"></script>
+    <script type="text/javascript" src="bt/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <form class="form-inline">
+        <div>
+        <label class="checkbox">
+            username
+        </label>
+        <input type="text" class="form-control" id="yhm" placeholder="用户名">
+        </div>
+        <div>
+        <label class="checkbox">
+          password
+        </label>
+        <input type="text" class="form-control" id="mm" placeholder="密码">
+        </div>
+        <div>
+            <label class="checkbox">
+                password
+            </label>
+            <input type="text" class="form-control" id="qrmm" placeholder="确认密码">
+        </div>
+        <input id="sub" class="btn btn-success form-control" type="button" value="注册"></input>
+    </form>
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+    $("#sub").click(function () {
+         var userName=$("#yhm").val();
+         var passWord=$("#mm").val();
+         var repassword=$("#qrmm").val();
+         //校验用户名是否为空
+        if (userName.length==0){
+            alert("用户名不能为空")
+            return;//不让程序继续往下执行了
+        }
+        //校验密码用户名不能相同
+        if (userName==passWord){
+                alert("密码用户名不能相同")
+                return;//不让程序继续往下执行了
+        }
+        //校验密码是否为空
+        if (passWord.length==0){
+            alert("密码不能为空")
+            return;//不让程序继续往下执行了
+        }
+        //校验两次密码是否相同
+        if (passWord!=repassword){
+            alert("密码不一致")
+            return;//不让程序继续往下执行了
+        }
+        //封装数据 提交给接口
+        var user = {
+            "username" : userName,
+            "password" : passWord
+
+        }
+        //将实体类转换为json
+        var userJson = JSON.stringify(user);
+
+        //提交给后端接口
+        $.post({
+            url: 'user/save',
+            data: userJson,
+             contentType:'application/json',
+            success: function (data) {
+                alert(data)
+                
+            }
+        });
+
+
+    })
+</script>
