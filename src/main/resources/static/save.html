@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>添加</title>
+    <title>注册</title>
     <link rel="stylesheet" href="bt/css/bootstrap.min.css">
     <link rel="stylesheet" href="bt/css/bootstrap-theme.min.css">
     <script type="text/javascript" src="bt/js/jquery.js"></script>
@@ -10,26 +10,20 @@
 </head>
 <body>
 <div class="container">
-    <form class="form-inline">
-        <div>
-        <label class="checkbox">
-            username
-        </label>
-        <input type="text" class="form-control" id="yhm" placeholder="用户名">
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">用户名</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="username">
         </div>
-        <div>
-        <label class="checkbox">
-          password
-        </label>
-        <input type="text" class="form-control" id="mm" placeholder="密码">
+        <div class="form-group">
+            <label for="exampleInputPassword1">密码</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
-        <div>
-            <label class="checkbox">
-                password
-            </label>
-            <input type="text" class="form-control" id="qrmm" placeholder="确认密码">
+        <div class="form-group">
+            <label for="exampleInputPassword2">重复密码</label>
+            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
         </div>
-        <input id="sub" class="btn btn-success form-control" type="button" value="注册"></input>
+        <input id="sub" class="btn btn-success form-control" type="button" value="注册">
     </form>
 </div>
 </body>
